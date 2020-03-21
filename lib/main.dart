@@ -28,6 +28,7 @@ class MyApp extends StatelessWidget {
               fontSize: 24,
             ),
           ),
+          fontFamily: 'AvenirLTStd',
         ),
       ),
     );

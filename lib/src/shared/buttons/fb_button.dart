@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 
-class BackButtonWidget extends StatelessWidget {
+class FbButtonWidget extends StatelessWidget {
   final VoidCallback onPressed;
 
-  BackButtonWidget({Key key, this.onPressed});
+  FbButtonWidget({Key key, this.onPressed});
+
   @override
   Widget build(BuildContext context) {
     return NeumorphicTheme(
@@ -13,24 +14,21 @@ class BackButtonWidget extends StatelessWidget {
         variantColor: Color(0xFF17191C),
         intensity: 0.3,
         lightSource: LightSource.topLeft,
-        depth: 2,
+        depth: 4,
       ),
       child: NeumorphicButton(
-        onClick: onPressed ??
-            () {
-              Navigator.of(context).maybePop();
-            },
+        padding: const EdgeInsets.all(12),
+        onClick: () {},
         boxShape: NeumorphicBoxShape.circle(),
         style: NeumorphicStyle(
           surfaceIntensity: 0.2,
-          shape: NeumorphicShape.concave,
+          shape: NeumorphicShape.convex,
           color: Color(0xFF17191C),
         ),
         child: Center(
-          child: Icon(
-            Icons.arrow_back_ios,
-            size: 14,
-            color: Colors.grey.withOpacity(0.7),
+          child: Image.asset(
+            'assets/images/fb.png',
+            fit: BoxFit.fill,
           ),
         ),
       ),

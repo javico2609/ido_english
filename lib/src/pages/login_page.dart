@@ -7,6 +7,7 @@ class LoginPage extends StatelessWidget {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: Stack(
         fit: StackFit.expand,
         children: <Widget>[
@@ -31,10 +32,23 @@ class LoginPage extends StatelessWidget {
           ),
           Positioned(
             child: Container(
-              child: Image.asset('assets/idologo.png'),
+              child: Image.asset('assets/images/idologo.png'),
             ),
             right: 30,
             top: kToolbarHeight + 50,
+          ),
+          Positioned(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: <Widget>[
+                FbButtonWidget(),
+                TwitterButtonWidget(),
+              ],
+            ),
+            height: kBottomNavigationBarHeight,
+            width: size.width,
+            bottom: kBottomNavigationBarHeight,
           ),
         ],
       ),
