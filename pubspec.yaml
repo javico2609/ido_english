@@ -55,7 +55,7 @@ flutter:
   fonts:
     - family: AvenirLTStd
       fonts:
-        - asset: assets/fonts/AvenirLTStd/Schyler-Regular.otf
+        - asset: assets/fonts/AvenirLTStd/AvenirLTStd-Book.otf
         - asset: assets/fonts/AvenirLTStd/AvenirLTStd-Medium.otf
         - asset: assets/fonts/AvenirLTStd/AvenirLTStd-Roman.otf
 
