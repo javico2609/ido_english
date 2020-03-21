@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:ido_english/src/bloc/provider.dart';
 import 'package:ido_english/src/shared/shared.dart';
 
@@ -8,49 +9,63 @@ class LoginPage extends StatelessWidget {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      body: Stack(
-        fit: StackFit.expand,
-        children: <Widget>[
-          BackgroundWidget(
-            width: size.width,
-            height: size.height,
-            child: Column(
-              children: <Widget>[],
+      body: AnnotatedRegion<SystemUiOverlayStyle>(
+        value: SystemUiOverlayStyle.light,
+        child: Stack(
+          fit: StackFit.expand,
+          children: <Widget>[
+            BackgroundWidget(
+              width: size.width,
+              height: size.height,
+              child: Column(
+                children: <Widget>[],
+              ),
             ),
-          ),
-          Positioned(
-            child: BackButtonWidget(),
-            left: 20,
-            top: kToolbarHeight,
-          ),
-          Positioned(
-            child: Container(
-              child: Text('Log In', style: Theme.of(context).textTheme.title),
+            Positioned(
+              child: BackButtonWidget(),
+              left: 20,
+              top: kToolbarHeight,
             ),
-            left: 30,
-            top: kToolbarHeight + 90,
-          ),
-          Positioned(
-            child: Container(
-              child: Image.asset('assets/images/idologo.png'),
+            Positioned(
+              child: Container(
+                child: Text('Log In', style: Theme.of(context).textTheme.title),
+              ),
+              left: 30,
+              top: kToolbarHeight + 90,
             ),
-            right: 30,
-            top: kToolbarHeight + 50,
-          ),
-          Positioned(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: <Widget>[
-                FbButtonWidget(),
-                TwitterButtonWidget(),
-              ],
+            Positioned(
+              child: Container(
+                child: Image.asset('assets/images/idologo.png'),
+              ),
+              right: 30,
+              top: kToolbarHeight + 50,
             ),
-            height: kBottomNavigationBarHeight,
-            width: size.width,
-            bottom: kBottomNavigationBarHeight,
-          ),
-        ],
+            Container(
+              height: double.infinity,
+              child: SafeArea(
+                child: Column(
+                  children: <Widget>[
+                    Expanded(
+                      child: SingleChildScrollView(
+                        physics: AlwaysScrollableScrollPhysics(),
+                        child: Column(),
+                      ),
+                    ),
+                    Spacer(),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: <Widget>[
+                        FbButtonWidget(),
+                        TwitterButtonWidget(),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
